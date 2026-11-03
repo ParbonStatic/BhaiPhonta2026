@@ -162,38 +162,49 @@ header{position:sticky;top:14px;z-index:50;padding:0 4%}
 .btn-out:hover{background:var(--cream);transform:translate(-1px,-1px);box-shadow:5px 6px 0 var(--kajal)}
 
 /* Right-side Polaroid / Zine Collage in Hero */
-.hero-collage{position:relative;max-width:320px;margin:0 auto}
+.hero-collage{position:relative;width:100%;max-width:350px;margin:.8rem auto 0;padding:14px 16px}
+.collage-back{
+ position:absolute;inset:10px 22px 24px 6px;z-index:1;
+ background:var(--peach);color:var(--crimson);
+ border:2px solid var(--kajal);border-radius:20px 8px 22px 10px;
+ transform:rotate(-6.5deg);box-shadow:5px 6px 0 var(--kajal);
+ padding:.7rem .95rem;display:flex;align-items:flex-end;justify-content:space-between;
+ font:700 .78rem var(--bn)
+}
 .polaroid{
+ position:relative;z-index:2;
  background:var(--ivory);color:var(--kajal);
  border:2px solid var(--kajal);border-radius:22px 10px 26px 12px;
- padding:1.4rem 1.3rem 1.2rem;transform:rotate(3.2deg);
- box-shadow:8px 10px 0 var(--kajal);text-align:center;position:relative
+ padding:1.35rem 1.25rem 1.15rem;transform:rotate(2.6deg);
+ box-shadow:8px 10px 0 var(--kajal);text-align:center;transition:.3s var(--ease)
 }
+.hero-collage:hover .polaroid{transform:rotate(1deg) translateY(-3px)}
 .polaroid::before{
- content:"";position:absolute;top:-13px;left:36%;width:86px;height:24px;
- background:rgba(246,196,83,.72);border:1px dashed rgba(59,35,26,.35);
- transform:rotate(-5deg)
+ content:"";position:absolute;top:-12px;left:50%;width:92px;height:24px;
+ background:rgba(246,196,83,.82);border:1.5px dashed rgba(59,35,26,.45);
+ transform:translateX(-50%) rotate(-4deg);z-index:3
 }
 .polaroid-stage{
- background:radial-gradient(circle at 50% 38%,#8E281B,#4A1810);
- border-radius:14px 6px 16px 8px;padding:1.5rem 1rem;border:1.5px solid var(--kajal)
+ background:radial-gradient(circle at 50% 42%,#9E3020 0%,#5A1A11 100%);
+ border-radius:14px 6px 16px 8px;padding:1.25rem .8rem 1rem;border:1.5px solid var(--kajal);
+ position:relative;overflow:hidden
 }
-.lamp{width:92px;height:92px;margin:0 auto;display:block}
+.lamp{width:140px;height:125px;margin:0 auto;display:block}
 .flame{transform-origin:50% 100%;animation:flick 1.6s ease-in-out infinite alternate}
 .glow{animation:pulse 2.4s ease-in-out infinite;transform-origin:center}
 @keyframes flick{from{transform:scale(1,.92) rotate(-2deg)}to{transform:scale(.94,1.06) rotate(2deg)}}
 @keyframes pulse{0%,100%{opacity:.35;transform:scale(.9)}50%{opacity:.85;transform:scale(1.15)}}
-.polaroid-cap{
- font:700 1.45rem/1.1 var(--hand);color:var(--kajal);margin-top:.75rem
-}
+.polaroid-meta{display:flex;align-items:center;justify-content:space-between;margin-top:.75rem;padding-top:.55rem;border-top:1px dashed rgba(59,35,26,.25)}
+.polaroid-cap{font:700 1.38rem/1 var(--hand);color:var(--kajal)}
+.polaroid-no{font:800 .68rem var(--syne);background:var(--cream);border:1px solid var(--kajal);padding:.18rem .45rem;border-radius:6px;color:var(--crimson)}
 .floating-tag{
- position:absolute;font:700 .74rem var(--syne);
+ position:absolute;z-index:4;font:800 .74rem var(--syne);
  background:var(--peach);color:var(--crimson);
- border:1.5px solid var(--kajal);padding:.38rem .75rem;
- border-radius:999px;box-shadow:3px 3px 0 var(--kajal)
+ border:1.5px solid var(--kajal);padding:.38rem .8rem;
+ border-radius:999px;box-shadow:3px 4px 0 var(--kajal);white-space:nowrap
 }
-.floating-tag.t1{top:-14px;left:-18px;transform:rotate(-8deg)}
-.floating-tag.t2{bottom:18px;right:-20px;background:var(--gold-l);color:var(--kajal);transform:rotate(6deg)}
+.floating-tag.t1{top:2px;left:0;transform:rotate(-8deg)}
+.floating-tag.t2{bottom:4px;right:0;background:var(--gold-l);color:var(--kajal);transform:rotate(5.5deg)}
 
 /* Tilted Diagonal Zine Marquee Ribbon */
 .marquee{
@@ -436,18 +447,31 @@ footer small{opacity:.75}
    </div>
   </div>
   <div class="hero-collage">
-   <span class="floating-tag t1">🧿 Yama-Proof</span>
+   <div class="collage-back" aria-hidden="true"><span>যমের দুয়ারে পড়ল কাঁটা</span><span>✦ DWITIYA</span></div>
    <div class="polaroid">
     <div class="polaroid-stage">
-     <svg class="lamp" viewBox="0 0 100 100" aria-label="Glowing Pradip clay lamp" role="img">
-      <circle class="glow" cx="50" cy="40" r="30" fill="#F6C453" opacity=".55"/>
-      <path class="flame" d="M50 14c9 12 12 20 0 30-12-10-9-18 0-30z" fill="#FFE082"/>
-      <path class="flame" d="M50 24c4 6 5 10 0 14-5-4-4-8 0-14z" fill="#FF8F00"/>
-      <path d="M18 54h64c0 16-14 26-32 26S18 70 18 54z" fill="#9C4A1A"/><path d="M18 54h64" stroke="#F6C453" stroke-width="3"/>
+     <svg class="lamp" viewBox="0 0 140 120" aria-label="Bhai Phonta Baran Dala with glowing Pradip, Tilak, and Dhan-Durba" role="img">
+      <circle cx="70" cy="60" r="50" fill="none" stroke="#F6C453" stroke-opacity=".28" stroke-width="1.5" stroke-dasharray="4 5"/>
+      <circle class="glow" cx="70" cy="54" r="34" fill="#F6C453" opacity=".45"/>
+      <g stroke="#F6C453" stroke-width="2" stroke-linecap="round" fill="none" opacity=".85">
+       <path d="M28 82 Q16 56 26 32 M22 64 L13 56 M21 48 L13 40"/>
+       <path d="M112 82 Q124 56 114 32 M118 64 L127 56 M119 48 L127 40"/>
+      </g>
+      <ellipse cx="70" cy="20" rx="5.5" ry="10" fill="#F3E3C0" stroke="#F6C453" stroke-width="1.5"/>
+      <circle cx="70" cy="34" r="3" fill="#E8833A"/>
+      <path class="flame" d="M70 38c8 11 10 18 0 27-10-9-8-16 0-27z" fill="#FFE082"/>
+      <path class="flame" d="M70 46c3.5 5.5 4.5 9 0 13-4.5-4-3.5-7.5 0-13z" fill="#FF8F00"/>
+      <path d="M40 70h60c0 15-13 24-30 24S40 85 40 70z" fill="#B84A24" stroke="#3B231A" stroke-width="2"/>
+      <path d="M36 70h68" stroke="#F6C453" stroke-width="3.5" stroke-linecap="round"/>
+      <ellipse cx="70" cy="100" rx="46" ry="7" fill="#F6C453" opacity=".35"/>
      </svg>
     </div>
-    <p class="polaroid-cap">chandan + doi + kajal = immortal ✨</p>
+    <div class="polaroid-meta">
+     <p class="polaroid-cap">chandan + doi + kajal ✨</p>
+     <span class="polaroid-no">FIG. 01</span>
+    </div>
    </div>
+   <span class="floating-tag t1">🧿 Yama-Proof</span>
    <span class="floating-tag t2">🎁 Gift Tax Due</span>
   </div>
  </div>
